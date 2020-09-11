@@ -6,5 +6,6 @@
       command: python van_oak/manage.py runserver 0.0.0.0:8000
       volumes:
         - .:/db
+        - ./web/static:/code/static
       ports:
-        - "8000:8000"
+        - "443:8000"
