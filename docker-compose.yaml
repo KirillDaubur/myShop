@@ -8,4 +8,4 @@
         - .:/db
         - ./web/static:/code/static
       ports:
-        - "443:8000"
+        - "443:8000" 
