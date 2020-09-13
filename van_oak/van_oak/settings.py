@@ -122,3 +122,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = BASE_DIR / '/db/Images'
+
+ADMINS = (
+    # ('Your Name', 'your_email@domain.com'),
+    ('admin', 'daubur@gmail.com'),
+)
+ADMIN_USERNAME = 'admin'
+ADMIN_EMAIL = 'daubur@gmail.com'
+ADMIN_INITIAL_PASSWORD = 'admin' # To be changed after first login by admin
