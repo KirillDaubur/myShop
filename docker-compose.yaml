@@ -3,7 +3,6 @@
   services:
     web:
       build: .
-      command: python van_oak/manage.py migrate; python van_oak/manage.py runserver 0.0.0.0:8000
       volumes:
         - .:/db
         - ./web/static:/code/static
