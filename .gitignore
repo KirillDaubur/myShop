@@ -1,0 +1,6 @@
+/docker-compose.yaml
+/Dockerfile
+
+/van_oak/db/*.sqlite3
+/*/_pycache_
+*.pyc

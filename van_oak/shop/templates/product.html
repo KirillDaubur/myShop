@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block title %}<title>{{ product.name }}</title>{% endblock %}
+</head>
+
+<body>	
+ 	<p>{{ product.name }}</p>
+ 	<p>{{ product.price }} uah</p>
+ 	<p>{{ product.type }}</p>
+ 	<p>Blanks:</p>
+ 	<ul>
+	 	{% for blank in blanks %}
+	 		<li>{{ blank }}</li>
+	 	{% endfor %}
+ 	</ul>
+ 	<p>{{product.trafaret }}</p>
+ 	<p>Compounds:</p>
+ 	<ul>
+	 	{% for compound in compounds %}
+	 		<li>{{ compound }}</li>
+		{% endfor %}
+	</ul>
+	<img src="{{product.image.url}}" height="300px">
+
+	<form action="" method="post">
+  		{% csrf_token %}
+  		{{ form }}
+  		<input type="submit" value="Add to cart">
+  	</form>
+  	<p><a href="{% url 'cart' %}">Go to Cart</a></p>
+  	<p><a href="{% url 'product_list' %}">Continue shopping</a></p>
+</body>
+</html>
