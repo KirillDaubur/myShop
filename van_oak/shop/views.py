@@ -12,7 +12,7 @@ def product_list(request):
 
 	return render(
         request,
-        'product_list.html',
+        'shop/product_list.html',
         context={'products':products},
     )
 
@@ -41,7 +41,7 @@ def product(request, id):
 	form = ProductForCartModel(properties=parameters_dict)
 	blanks = product.blanks.all()
 	compounds = product.compounds.all()
-	return render(request, 'product.html', context = { 'product': product, 'blanks': blanks, 'compounds': compounds, 'form': form })
+	return render(request, 'shop/product.html', context = { 'product': product, 'blanks': blanks, 'compounds': compounds, 'form': form })
 		
 
 def cart(request):
@@ -67,7 +67,7 @@ def cart(request):
 				order = order_form.save(request)
 				return redirect("thanks")
 
-	return render(request, 'cart.html', context = { 'products_in_cart': products_in_cart, "order_form": order_form, "order_total": order_total, "errors": errors })
+	return render(request, 'shop/cart.html', context = { 'products_in_cart': products_in_cart, "order_form": order_form, "order_total": order_total, "errors": errors })
 
 def remove_from_cart(request, product_id):
 	cart = request.session.get('cart', {})
@@ -94,4 +94,4 @@ def decrease_item_count_in_order(request, product_id):
 
 
 def thanks_for_order(request):
-	return render(request, 'thanks_for_order.html')
+	return render(request, 'shop/thanks_for_order.html')

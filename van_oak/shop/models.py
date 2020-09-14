@@ -101,14 +101,14 @@ class Product(models.Model):
 	Class representing a complete product
 	"""
 
-	name = models.CharField(max_length=60, help_text="Input product name")
+	name = models.CharField(max_length=40, help_text="Input product name")
 	price = models.DecimalField(max_digits=7, decimal_places=2, help_text="Input price")
 	type = models.ForeignKey("ProductType", on_delete=models.SET_NULL, null=True, to_field="id")
 	blanks = models.ManyToManyField(Blank)
 	trafaret = models.ForeignKey("BlankTrafaret", on_delete=models.SET_NULL, null=True)
 	compounds = models.ManyToManyField(Compound, blank=True)
 
-	image = models.ImageField(upload_to="Products/", null=True)
+	image = models.ImageField(upload_to="Images/Products/", null=True)
 
 	def __str__(self):
 		return self.name

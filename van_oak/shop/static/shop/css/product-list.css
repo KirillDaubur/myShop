@@ -1,0 +1,6 @@
+.center-cropped {
+  height: 400px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

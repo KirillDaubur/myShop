@@ -1,0 +1,35 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block extrastyles %}
+    <link rel="stylesheet" type="text/css"
+        href="{% static "shop/css/product-list.css"%}" />
+{% endblock %}
+
+{% block content %}
+	<div class="album py-5 bg-light">
+    <div class="container">		
+      		<div class="row">
+      			{% for product in products %}
+	      			<div class="col-md-4">
+		    			<a href="{% url 'product' id=product.id %}" class="text-dark">
+					          <div class="card mb-4 shadow-sm">
+					          	<div class="center-cropped" style="background-image: url({{product.image.url}});"></div>
+
+					            <div class="card-body">
+					              <p class="card-text d-flex justify-content-center">{{ product.name }}</p>
+			               		  <p class="card-text d-flex justify-content-center">{{ product.price }} uah</p>
+					            </div>
+				        	</div>
+			        	</a>
+		        	</div>
+
+	        	{% endfor %}
+    		</div>	      
+    </div>
+  </div>
+{% endblock %}
+
+
+
+

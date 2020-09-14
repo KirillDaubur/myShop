@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  {% block title %}<title>Van Oak Shop</title>{% endblock %}
-</head>
+{% extends 'shop/base.html' %}
 
-<body>
+{% block content %}
 	{% if errors %}
 	<h1>{{ errors }}</h1>
 	{% endif %}
@@ -34,5 +30,4 @@
   		</table>
   		<input type="submit" name="Submit">
   	</form>
-</body>
-</html>
+{% endblock %}
