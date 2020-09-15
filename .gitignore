@@ -1,3 +1,5 @@
 /van_oak/db/*.sqlite3
+/van_oak/static
+/van_oak/media
 /*/_pycache_
 *.pyc
