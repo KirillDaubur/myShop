@@ -66,6 +66,12 @@ def cart(request):
 			if order_form.is_valid():
 				order = order_form.save(request)
 				return redirect("thanks")
+			else:
+				print()
+				print("ERRORS:")
+				print(order_form.errors)
+				print()
+
 
 	return render(request, 'shop/cart.html', context = { 'products_in_cart': products_in_cart, "order_form": order_form, "order_total": order_total, "errors": errors })
 

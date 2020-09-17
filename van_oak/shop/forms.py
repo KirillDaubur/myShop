@@ -11,7 +11,7 @@ class OrderItemForm(forms.Form):
 		self.properties = properties
 
 class ProductForCartModel(forms.Form):
-	desirable_parameters = forms.ChoiceField(widget=forms.Select())
+	desirable_parameters = forms.ChoiceField(widget=forms.Select(), label="")
 
 	def __init__(self, properties, *args, **kwargs):
 		super(forms.Form, self).__init__(*args, **kwargs)
@@ -29,6 +29,19 @@ class OrderForm(forms.ModelForm):
 	class Meta:
 		model = Order
 		exclude = ['products', 'total_cost']
+
+	def __init__(self, *args, **kwargs):	
+		super(forms.ModelForm, self).__init__(*args, **kwargs)
+		self.fields['name'].widget = forms.TextInput(attrs={
+			'class': 'form-control' })
+		self.fields['surname'].widget = forms.TextInput(attrs={
+			'class': 'form-control' })
+		self.fields['email'].widget = forms.EmailInput(attrs={
+			'class': 'form-control' })
+		self.fields['phone_number'].widget = forms.TextInput(attrs={
+			'class': 'form-control' })
+		self.fields['shipping_address'].widget = forms.Textarea(attrs={
+			'class': 'form-control' })
 
 	def save(self, request):
 		cart = request.session.get('cart', {})

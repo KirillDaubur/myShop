@@ -1,7 +1,11 @@
 {% extends 'shop/base.html' %}
 
 {% block content %}
-	<h1>Thank you for your order</h1>
-	<p>Manager will contact you to clarify order details.</p>
-	<a href="{% url 'product_list' %}">Back to shop</a>
+	<div class="text-center d-flex" style="height: 80%;">
+		<div style="margin: auto;">
+			<h1>Thank you for your order</h1>
+			<p>Manager will contact you to clarify order details.</p>
+			<a href="{% url 'product_list' %}" class="btn btn-dark">Back to shop</a>
+		</div>
+	</div>
 {% endblock %}

@@ -1,29 +1,32 @@
 {% extends 'shop/base.html' %}
+{% load static %}
+
+{% block extrastyles %}
+    <link rel="stylesheet" type="text/css"
+        href="{% static "shop/css/product-list.css"%}" />
+{% endblock %}
 
 {% block content %}
- 	<p>{{ product.name }}</p>
- 	<p>{{ product.price }} uah</p>
- 	<p>{{ product.type }}</p>
- 	<p>Blanks:</p>
- 	<ul>
-	 	{% for blank in blanks %}
-	 		<li>{{ blank }}</li>
-	 	{% endfor %}
- 	</ul>
- 	<p>{{product.trafaret }}</p>
- 	<p>Compounds:</p>
- 	<ul>
-	 	{% for compound in compounds %}
-	 		<li>{{ compound }}</li>
-		{% endfor %}
-	</ul>
-	<img src="{{product.image.url}}" height="300px">
+	<div  class="album bg-light p-3">
+		<div class="d-flex justify-content-center pb-2">
+			<h2>{{ product.name }}</h2>
+		</div>
+		<div class="d-flex">
 
-	<form action="" method="post">
-  		{% csrf_token %}
-  		{{ form }}
-  		<input type="submit" value="Add to cart">
-  	</form>
-  	<p><a href="{% url 'cart' %}">Go to Cart</a></p>
-  	<p><a href="{% url 'product_list' %}">Continue shopping</a></p>
+			<div class="col-md-6 pr-0 center-cropped" style="background-image: url({{product.image.url}});"></div>
+	
+			<div class="col-md-6 pl-0 d-flex flex-column justify-content-center">
+				<p>
+					<b>{{ product.price }}</b> uah
+				</p>
+				<form action="" method="post">
+			  		{% csrf_token %}
+			  		<div class="pb-2">
+		  				{{ form.desirable_parameters }}
+		  			</div>
+			  		<input type="submit" class="btn btn-dark" value="Add to cart">
+		  		</form>
+			</div>
+		</div>
+	</div>
 {% endblock %}
